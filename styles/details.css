@@ -1,0 +1,39 @@
+.details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.detail--column {
+    flex-basis: 14%;
+    margin: 1.25rem;
+    padding: 2rem;
+    border: 1px dotted goldenrod;
+}
+
+.orders {
+    font-size: 1.5rem;
+    padding: 1rem 18rem;
+}
+
+
+
+/* .details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.detail--column {
+    flex-basis: 24%;
+    margin: 0 2rem;
+    padding: 1rem;
+    border: 1px dotted goldenrod;
+}
+
+.orders {
+    font-size: 1.5rem;
+    padding: 1rem 18rem;
+}
+
+ */

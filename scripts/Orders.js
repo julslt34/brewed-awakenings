@@ -4,7 +4,7 @@ import { getProducts, getEmployees, getOrders } from "./database.js"
 const products = getProducts()
 const employees = getEmployees()
 const orders = getOrders()
-
+console.log(employees)
 
 // Function whose responsibility is to find the product for an order
 const findProduct = (order, products) => {
@@ -32,6 +32,43 @@ const findEmployee = (order, employees) => {
     return orderEmployee
 }
 
+// functon whose job is to count the number of products an employee has sold
+
+const employeeOrders = (employee) => {
+       let fulfilledOrders = 0
+     for (const order of orders) {
+          if (order.employeeId === employee.id) {
+             fulfilledOrders++ 
+        }
+    }
+    return fulfilledOrders
+}
+
+
+
+
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+        if (itemClicked.id.startsWith("employee")) {
+            const [,employeeId] = itemClicked.id.split("--")
+        
+        for (const employee of employees) {
+            if (employee.id === parseInt(employeeId)) {
+                
+                const orderCount = employeeOrders(employee)
+
+                window.alert(`${employee.name} sold ${orderCount} products.`)
+            }
+        }
+    }
+
+    }
+
+)
+
+
 export const Orders = () => {
      let html = ""
      html = "<ul>"
@@ -56,12 +93,3 @@ export const Orders = () => {
 
 
 
-
-
-
-// for (const order of orders) {
-    //     const employee = findEmployee(order, employees)
-    //     const product = findProduct(order)
-
-//     html += `<li>${product.name} was sold by ${employee.name} on ${new Date(order.timestamp).toLocaleDateString()}</li>`
-// }
